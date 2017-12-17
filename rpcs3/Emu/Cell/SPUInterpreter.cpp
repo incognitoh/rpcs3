@@ -52,7 +52,7 @@ void spu_interpreter::set_interrupt_status(SPUThread& spu, spu_opcode_t op)
 
 	if (spu.ch_event_stat & SPU_EVENT_AVAILABLE && spu.interrupts_enabled)
 	{
-        spu.interrupts_enabled = false;
+		spu.interrupts_enabled = false;
 		spu.srr0 = std::exchange(spu.pc, -4) + 4;
 	}
 }
