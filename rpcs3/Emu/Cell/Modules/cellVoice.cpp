@@ -13,9 +13,9 @@ s32 cellVoiceConnectIPortToOPort()
 	return CELL_OK;
 }
 
-s32 cellVoiceCreateNotifyEventQueue()
+s32 cellVoiceCreateNotifyEventQueue(vm::ptr<u32> id, vm::ptr<u64> key)
 {
-	UNIMPLEMENTED_FUNC(cellVoice);
+	cellVoice.todo("cellVoiceCreateNotifyEventQueue(id=*0x%x, key=*0x%x)", id, key);
 	return CELL_OK;
 }
 
@@ -79,9 +79,9 @@ s32 cellVoiceGetVolume()
 	return CELL_OK;
 }
 
-s32 cellVoiceInit()
+s32 cellVoiceInit(vm::ptr<CellVoiceInitParam> pArg)
 {
-	UNIMPLEMENTED_FUNC(cellVoice);
+	cellVoice.todo("cellVoiceInit(pArg=*0x%x)", pArg);
 	return CELL_OK;
 }
 
@@ -145,9 +145,9 @@ s32 cellVoiceSetMuteFlagAll()
 	return CELL_OK;
 }
 
-s32 cellVoiceSetNotifyEventQueue()
+s32 cellVoiceSetNotifyEventQueue(u64 key, u64 source)
 {
-	UNIMPLEMENTED_FUNC(cellVoice);
+	cellVoice.todo("cellVoiceSetNotifyEventQueue(key=0x%x, source=0x%x)", key, source);
 	return CELL_OK;
 }
 
