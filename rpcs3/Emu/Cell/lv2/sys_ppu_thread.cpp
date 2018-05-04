@@ -288,6 +288,12 @@ error_code _sys_ppu_thread_create(vm::ptr<u64> thread_id, vm::ptr<ppu_thread_par
 		return CELL_EPERM;
 	}
 
+	const auto stack_block = vm::get(vm::stack);
+	if (stack_block->size - stack_block->used() <= (stacksize >= 0x1000 ? ::align(stacksize, 0x1000) : 0x4000) + 4096)
+	{
+		return CELL_ENOMEM;
+	}
+
 	const u32 tid = idm::import<ppu_thread>([&]()
 	{
 		auto ppu = std::make_shared<ppu_thread>(threadname ? threadname.get_ptr() : "", prio, stacksize);
