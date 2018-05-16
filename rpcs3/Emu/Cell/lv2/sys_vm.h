@@ -25,6 +25,17 @@ struct sys_vm_statistics_t
 	be_t<u64> timestamp;
 };
 
+struct sys_vm_block_t
+{
+	u32 container;
+	u32 psize;
+};
+
+struct sys_vm_t
+{
+	std::unordered_map<u32, std::shared_ptr<sys_vm_block_t>> m_blocks;
+};
+
 // SysCalls
 error_code sys_vm_memory_map(u32 vsize, u32 psize, u32 cid, u64 flag, u64 policy, vm::ptr<u32> addr);
 error_code sys_vm_memory_map_different(u32 vsize, u32 psize, u32 cid, u64 flag, u64 policy, vm::ptr<u32> addr);
